@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/project/a32cb780-5274-4a01-af8d-bc3295916c8e -->
-    <groupId>com.adminencuesta360.application</groupId>
-    <artifactId>adminencuesta360</artifactId>
-    <name>adminencuesta360</name>
+    <groupId>com.basevaadin.application</groupId>
+    <artifactId>basevaadin</artifactId>
+    <name>basevaadin</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
