@@ -1,4 +1,4 @@
-# Administracion Encuesta360
+# BaseVaadin
 
 This project can be used as a starting point to create your own Vaadin application with Spring Boot.
 It contains all the necessary configuration and some placeholder files to get you started.
@@ -22,7 +22,7 @@ This will build a JAR file with all the dependencies and front-end resources,
 ready to be deployed. The file can be found in the `target` folder after the build completes.
 
 Once the JAR file is built, you can run it using
-`java -jar target/adminencuesta360-1.0-SNAPSHOT.jar`
+`java -jar target/basevaadin-1.0-SNAPSHOT.jar`
 
 ## Project structure
 
@@ -56,13 +56,13 @@ To build the Dockerized version of the project, run
 
 ```
 mvn clean package -Pproduction
-docker build . -t adminencuesta360:latest
+docker build . -t basevaadin:latest
 ```
 
 Once the Docker image is correctly built, you can test it locally using
 
 ```
-docker run -p 8080:8080 adminencuesta360:latest
+docker run -p 8080:8080 basevaadin:latest
 ```
 
 ## Deploying using Kubernetes
@@ -97,7 +97,7 @@ kubectl get services
 kubectl get deployments
 ```
 
-If the pods say `Container image "adminencuesta360:latest" is not present with pull policy of Never` then you have not
+If the pods say `Container image "basevaadin:latest" is not present with pull policy of Never` then you have not
 built your application using Docker or there is a mismatch in the name. Use `docker images ls` to see which images are
 available.
 
