@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: adminencuesta360
+  name: basevaadin
   namespace: default
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: adminencuesta360
+      app: basevaadin
   template:
     metadata:
       labels:
-        app: adminencuesta360
+        app: basevaadin
     spec:
       containers:
-        - name: adminencuesta360
-          image: adminencuesta360:latest
+        - name: basevaadin
+          image: basevaadin:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
@@ -28,10 +28,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: adminencuesta360-balancer
+  name: basevaadin-balancer
 spec:
   selector:
-    app: adminencuesta360
+    app: basevaadin
   ports:
     - protocol: TCP
       port: 8000 # The port to expose to the outside
