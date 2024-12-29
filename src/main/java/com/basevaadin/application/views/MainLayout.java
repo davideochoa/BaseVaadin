@@ -19,12 +19,14 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.Layout;
+import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.server.auth.AccessAnnotationChecker;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.flow.server.menu.MenuConfiguration;
 import com.vaadin.flow.server.menu.MenuEntry;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.Optional;
 
@@ -92,8 +94,8 @@ public class MainLayout extends AppLayout {
             UsuarioEntity user = maybeUser.get();
 
             Avatar avatar = new Avatar(user.getNombrePropio());
-            //StreamResource resource = new StreamResource("profile-pic",() -> new ByteArrayInputStream(user.getProfilePicture()));
-            //avatar.setImageResource(resource);
+            StreamResource resource = new StreamResource("profile-pic",() -> new ByteArrayInputStream(user.getProfilePicture()));
+            avatar.setImageResource(resource);
             avatar.setThemeName("xsmall");
             avatar.getElement().setAttribute("tabindex", "-1");
 

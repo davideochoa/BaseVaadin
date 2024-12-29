@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,5 +41,9 @@ public class UsuarioEntity {
 
     @Column(name = "es_reseteado_password")
     private Boolean esReseteadoPassword;
+
+    @Lob
+    @Column(length = 1000000)
+    private byte[] profilePicture;
 
 }
