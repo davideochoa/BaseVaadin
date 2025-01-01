@@ -1,4 +1,4 @@
-package com.basevaadin.application.views.layoutwithcontentareas;
+package com.basevaadin.application.web.views.layoutwithcontentareas;
 
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;

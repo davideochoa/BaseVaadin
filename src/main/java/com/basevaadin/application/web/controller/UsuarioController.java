@@ -1,4 +1,4 @@
-package com.basevaadin.application.web;
+package com.basevaadin.application.web.controller;
 
 import com.basevaadin.application.data.DTO.UsuarioDTO;
 import com.basevaadin.application.data.request.LoginRequest;

@@ -1,4 +1,4 @@
-package com.basevaadin.application.views.helloworld;
+package com.basevaadin.application.web.views.helloworld;
 
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;

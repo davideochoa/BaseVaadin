@@ -1,4 +1,4 @@
-package com.basevaadin.application.views.login;
+package com.basevaadin.application.web.views.login;
 
 import com.basevaadin.application.security.AuthenticatedUser;
 import com.vaadin.flow.component.login.LoginI18n;

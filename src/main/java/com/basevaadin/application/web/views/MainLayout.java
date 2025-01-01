@@ -1,4 +1,4 @@
-package com.basevaadin.application.views;
+package com.basevaadin.application.web.views;
 
 import com.basevaadin.application.data.entity.UsuarioEntity;
 import com.basevaadin.application.security.AuthenticatedUser;
