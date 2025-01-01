@@ -1,4 +1,4 @@
-package com.basevaadin.application.web.views.layoutwithcontentareas;
+package com.basevaadin.application.web.views.permitall.layoutwithcontentareas;
 
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
@@ -15,7 +15,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 import jakarta.annotation.security.PermitAll;
 
 @PageTitle("Layout with Content Areas")
-@Route("my-view")
+@Route("my-layout")
 @Menu(order = 1, icon = "line-awesome/svg/pencil-ruler-solid.svg")
 @PermitAll
 public class LayoutwithContentAreasView extends Composite<VerticalLayout> {
