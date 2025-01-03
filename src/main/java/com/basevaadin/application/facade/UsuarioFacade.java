@@ -5,6 +5,7 @@ import com.basevaadin.application.data.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -22,6 +23,10 @@ public class UsuarioFacade {
 
     public Optional<UsuarioEntity> findByNombreUsuarioAndPassword(String nombreUsuario, String password) {
         return usuarioRepository.findByNombreUsuarioAndPassword(nombreUsuario, password);
+    }
+
+    public List<UsuarioEntity> findAllByOrderByNombrePropioAsc(){
+        return usuarioRepository.findAllByOrderByNombrePropioAsc();
     }
 
 }

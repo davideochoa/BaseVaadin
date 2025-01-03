@@ -8,10 +8,11 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 import jakarta.annotation.security.PermitAll;
+import org.vaadin.lineawesome.LineAwesomeIconUrl;
 
 @PageTitle("My View")
 @Route("my-view")
-@Menu(order = 2)
+@Menu(order = 2, icon = LineAwesomeIconUrl.PENCIL_RULER_SOLID)
 @PermitAll
 public class MyViewView extends Composite<VerticalLayout> {
 
