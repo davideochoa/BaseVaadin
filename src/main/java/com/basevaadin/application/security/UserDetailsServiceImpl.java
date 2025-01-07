@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -35,15 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     private static List<GrantedAuthority> getAuthorities(UsuarioEntity user) {
-        List<GrantedAuthority> roles = new ArrayList<>();
-
-        if(user.getEsAdministrador())
-            roles.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-        else
-            roles.add(new SimpleGrantedAuthority("ROLE_USER"));
-
-        return roles;
-
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRol()));
     }
 
 }

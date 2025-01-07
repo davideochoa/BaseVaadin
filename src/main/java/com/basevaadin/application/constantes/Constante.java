@@ -1,19 +1,28 @@
 package com.basevaadin.application.constantes;
 
+import lombok.Data;
+
+@Data
 public class Constante {
     public enum Roles {
-        SUPER_USUARIO("SuperUsuario"),
-        ADMINISTRADOR("Administrador"),
-        USUARIO("Usuario");
+        SUPER_USUARIO("SuperAdministrador","superadmin"),
+        ADMINISTRADOR("Administrador","admin"),
+        USUARIO("Usuario","user");
 
         private final String displayName;
+        private final String value;
 
-        Roles(String displayName) {
+        Roles(String displayName,String value) {
             this.displayName = displayName;
+            this.value = value;
         }
 
-        public String getDisplayName() {
+        public String getDisplayName(){
             return displayName;
+        }
+
+        public String getValue() {
+            return value;
         }
     }
 

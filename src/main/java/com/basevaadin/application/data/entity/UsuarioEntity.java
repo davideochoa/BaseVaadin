@@ -36,8 +36,8 @@ public class UsuarioEntity {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "es_administrador")
-    private Boolean esAdministrador;
+    @Column(name = "rol")
+    private String rol;
 
     @Column(name = "es_reseteado_password")
     private Boolean esReseteadoPassword;

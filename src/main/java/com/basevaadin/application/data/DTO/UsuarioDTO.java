@@ -12,6 +12,6 @@ public class UsuarioDTO {
     private String nombrePropio;
     private String correo;
     private String nombreUsuario;
-    private Boolean esAdministrador;
+    private String rol;
     private Boolean esReseteadoPassword;
 }

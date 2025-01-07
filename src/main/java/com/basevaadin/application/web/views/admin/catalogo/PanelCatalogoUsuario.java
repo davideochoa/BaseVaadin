@@ -13,12 +13,12 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class PanelCatalogoUsuario extends VerticalLayout {
     private final UsuarioService usuarioService;
     private FormLayout formLayout = new FormLayout();
-    private ComboBox<UsuarioDTO> comboBox = new ComboBox<>(Constante.nombrePropio);
-    private TextField nombrePropioTextField = new TextField(Constante.nombrePropio);
+    private ComboBox<UsuarioDTO> nombrePropioComboBox = new ComboBox<>(Constante.nombrePropio);
     private TextField usernameTextField = new TextField(Constante.nombreUsuario);
     private ComboBox<String> rolComboBox = new ComboBox<>(Constante.rol);
     private Checkbox resetPasswordCheckbox = new Checkbox(Constante.reset_Password);
@@ -26,6 +26,8 @@ public class PanelCatalogoUsuario extends VerticalLayout {
     private Button cancelButton = new Button(Constante.cancelar);
     HorizontalLayout buttonLayout = new HorizontalLayout(grabarUsuarioButton, cancelButton);
 
+    private String usuarioNuevo = null;
+    private UsuarioDTO usuarioDTO = null;
     public PanelCatalogoUsuario(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
 
@@ -34,14 +36,32 @@ public class PanelCatalogoUsuario extends VerticalLayout {
     }
 
     private void configurarLayout() {
-        formLayout.add(comboBox,nombrePropioTextField, usernameTextField, rolComboBox, resetPasswordCheckbox);
+        formLayout.add(nombrePropioComboBox, usernameTextField, rolComboBox, resetPasswordCheckbox);
 
         add(formLayout, buttonLayout);
     }
 
     private void configurarComponentes() {
-        comboBox.setItemLabelGenerator(UsuarioDTO::getNombrePropio);
-        comboBox.setItems(usuarioService.findAllByOrderByNombrePropioAsc());
+        nombrePropioComboBox.setItemLabelGenerator(UsuarioDTO::getNombrePropio);
+        nombrePropioComboBox.setItems(getItemsnombrePropioComboBox());
+        nombrePropioComboBox.setAllowCustomValue(true);
+        nombrePropioComboBox.setClearButtonVisible(true);
+        nombrePropioComboBox.addValueChangeListener(e -> {
+            if(e.getValue() != null){
+                usuarioDTO = e.getValue();
+                usernameTextField.setValue(usuarioDTO.getNombreUsuario());
+                rolComboBox.setValue(usuarioDTO.getRol());
+                resetPasswordCheckbox.setValue(usuarioDTO.getEsReseteadoPassword());
+
+            }
+
+        });
+        nombrePropioComboBox.addCustomValueSetListener(e -> {
+            if(e.getDetail() != null)
+                usuarioNuevo = e.getDetail();
+            else
+                usuarioNuevo = null;
+        });
 
         rolComboBox.setItems(Arrays.stream(Constante.Roles.values())
                 .map(Constante.Roles::getDisplayName)
@@ -62,5 +82,9 @@ public class PanelCatalogoUsuario extends VerticalLayout {
         });
 
         setPadding(false);
+    }
+
+    private List<UsuarioDTO> getItemsnombrePropioComboBox() {
+        return usuarioService.findAllByOrderByNombrePropioAsc();
     }
 }

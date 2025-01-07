@@ -29,7 +29,7 @@ public class UsuarioService {
                         usuario.getNombrePropio(),
                         usuario.getCorreo(),
                         usuario.getNombreUsuario(),
-                        usuario.getEsAdministrador(),
+                        usuario.getRol(),
                         usuario.getEsReseteadoPassword()
                 ));
     }
@@ -43,7 +43,7 @@ public class UsuarioService {
                         usuario.getNombrePropio(),
                         usuario.getCorreo(),
                         usuario.getNombreUsuario(),
-                        usuario.getEsAdministrador(),
+                        usuario.getRol(),
                         usuario.getEsReseteadoPassword()
                 ))
                 .collect(Collectors.toList());
