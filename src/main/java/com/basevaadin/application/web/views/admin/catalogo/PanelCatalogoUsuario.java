@@ -50,7 +50,7 @@ public class PanelCatalogoUsuario extends VerticalLayout {
             if(e.getValue() != null){
                 usuarioDTO = e.getValue();
                 usernameTextField.setValue(usuarioDTO.getNombreUsuario());
-                rolComboBox.setValue(usuarioDTO.getRol());
+                //rolComboBox.setValue(usuarioDTO.getRol());
                 resetPasswordCheckbox.setValue(usuarioDTO.getEsReseteadoPassword());
 
             }

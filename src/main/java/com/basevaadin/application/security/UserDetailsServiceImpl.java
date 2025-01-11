@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -36,7 +37,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     private static List<GrantedAuthority> getAuthorities(UsuarioEntity user) {
-        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRol()));
+
+        //return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRol()));
+
+        return user.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role))
+                .collect(Collectors.toList());
     }
 
 }

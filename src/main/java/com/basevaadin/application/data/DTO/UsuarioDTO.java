@@ -1,8 +1,11 @@
 package com.basevaadin.application.data.DTO;
 
+import com.basevaadin.application.data.entity.RolEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -12,6 +15,6 @@ public class UsuarioDTO {
     private String nombrePropio;
     private String correo;
     private String nombreUsuario;
-    private String rol;
+    private Set<RolEntity> roles;
     private Boolean esReseteadoPassword;
 }
