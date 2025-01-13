@@ -1,7 +1,7 @@
 package com.basevaadin.application.security;
 
-import com.basevaadin.application.data.entity.UsuarioEntity;
-import com.basevaadin.application.data.repository.UsuarioRepository;
+import com.basevaadin.application.app.data.entity.UsuarioEntity;
+import com.basevaadin.application.app.data.repository.UsuarioRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -40,7 +40,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         //return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRol()));
 
-        return user.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role))
+        return user.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getNombre()))
                 .collect(Collectors.toList());
     }
 

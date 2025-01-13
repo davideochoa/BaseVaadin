@@ -1,7 +1,7 @@
 package com.basevaadin.application.security;
 
-import com.basevaadin.application.data.entity.UsuarioEntity;
-import com.basevaadin.application.data.repository.UsuarioRepository;
+import com.basevaadin.application.app.data.entity.UsuarioEntity;
+import com.basevaadin.application.app.data.repository.UsuarioRepository;
 import com.vaadin.flow.spring.security.AuthenticationContext;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
