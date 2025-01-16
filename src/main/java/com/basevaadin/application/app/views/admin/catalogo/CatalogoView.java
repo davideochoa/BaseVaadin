@@ -1,6 +1,7 @@
 package com.basevaadin.application.app.views.admin.catalogo;
 
 import com.basevaadin.application.app.constantes.Constante;
+import com.basevaadin.application.app.service.RolService;
 import com.basevaadin.application.app.service.UsuarioService;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.html.Div;
@@ -18,8 +19,8 @@ import org.vaadin.lineawesome.LineAwesomeIconUrl;
 public class CatalogoView extends Div {
     private TabSheet tabSheet = new TabSheet();
 
-    public CatalogoView(UsuarioService usuarioService) {
-        tabSheet.add("Usuario", new PanelCatalogoUsuario(usuarioService));
+    public CatalogoView(UsuarioService usuarioService, RolService rolService) {
+        tabSheet.add("Usuario", new PanelCatalogoUsuario(usuarioService, rolService));
         tabSheet.add("Payment",
                 new Div(new Text("This is the Payment tab content")));
         tabSheet.add("Shipping",

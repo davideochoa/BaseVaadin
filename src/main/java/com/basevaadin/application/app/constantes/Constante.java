@@ -4,28 +4,6 @@ import lombok.Data;
 
 @Data
 public class Constante {
-    public enum Roles {
-        SUPER_USUARIO("SuperAdministrador","superadmin"),
-        ADMINISTRADOR("Administrador","admin"),
-        USUARIO("Usuario","user");
-
-        private final String displayName;
-        private final String value;
-
-        Roles(String displayName,String value) {
-            this.displayName = displayName;
-            this.value = value;
-        }
-
-        public String getDisplayName(){
-            return displayName;
-        }
-
-        public String getValue() {
-            return value;
-        }
-    }
-
     public static final String nombrePropio = "Nombre";
     public static final String nombreUsuario = "Nombre de Usuario";
     public static final String rol = "Rol";

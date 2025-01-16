@@ -30,7 +30,7 @@ public class UsuarioService {
     }
 
     public List<UsuarioDTO> findAllByOrderByNombrePropioAsc() {
-        return Utils.convertToDTOList(usuarioFacade.findAllByOrderByNombrePropioAsc());
+        return Utils.convertToDTOList(usuarioFacade.findAllByOrderByNombrePropioAsc(), Utils::toDTO);
     }
 
     public UsuarioEntity guardarUsuarioConRoles(UsuarioEntity usuario, List<String> nombresRoles){

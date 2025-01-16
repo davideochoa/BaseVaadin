@@ -6,9 +6,17 @@ import com.basevaadin.application.app.data.entity.RolEntity;
 import com.basevaadin.application.app.data.entity.UsuarioEntity;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Utils {
+
+    public static <T, U> List<U> convertToDTOList(List<T> entities, Function<T, U> mapper) {
+        return entities.stream()
+                .map(mapper)
+                .collect(Collectors.toList());
+    }
+
     public static RolDTO toDTO(RolEntity rolEntity) {
         return new RolDTO(
                 rolEntity.getId(),
@@ -35,9 +43,4 @@ public class Utils {
         return dto;
     }
 
-    public static List<UsuarioDTO> convertToDTOList(List<UsuarioEntity> usuarioEntities) {
-        return usuarioEntities.stream()
-                .map(Utils::toDTO) // Llama al método estático de conversión
-                .collect(Collectors.toList()); // Recolecta el resultado en una lista
-    }
 }
