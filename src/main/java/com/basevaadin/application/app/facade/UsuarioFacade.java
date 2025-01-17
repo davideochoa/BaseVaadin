@@ -17,6 +17,7 @@ public class UsuarioFacade {
         this.usuarioRepository = usuarioRepository;
     }
 
+    @Transactional(readOnly = true)
     public List<UsuarioEntity> findAllByOrderByNombrePropioAsc(){
         return usuarioRepository.findAllByOrderByNombrePropioAsc();
     }
