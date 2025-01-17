@@ -57,7 +57,6 @@ public class PanelCatalogoUsuario extends VerticalLayout {
                 usernameTextField.setValue(usuarioDTO.getNombreUsuario());
                 rolComboBox.setValue(usuarioDTO.getRoles().iterator().next());
                 resetPasswordCheckbox.setValue(usuarioDTO.getEsReseteadoPassword());
-
             }
 
         });
@@ -76,10 +75,9 @@ public class PanelCatalogoUsuario extends VerticalLayout {
 
         grabarUsuarioButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         grabarUsuarioButton.addClickListener(event -> {
-            String nombreUsuario = usernameTextField.getValue();
-            RolDTO rolDTO = rolComboBox.getValue();
-            boolean valorReset = resetPasswordCheckbox.getValue();
-
+            usuarioDTO.setNombreUsuario(usernameTextField.getValue());
+            usuarioDTO.getRoles().add(rolComboBox.getValue());
+            usuarioDTO.setEsReseteadoPassword(resetPasswordCheckbox.getValue());
 
         });
 
@@ -88,6 +86,7 @@ public class PanelCatalogoUsuario extends VerticalLayout {
             usernameTextField.clear();
             rolComboBox.clear();
             resetPasswordCheckbox.clear();
+            usuarioDTO = new UsuarioDTO();
         });
 
         setPadding(false);
