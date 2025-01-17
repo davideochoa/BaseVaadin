@@ -79,6 +79,7 @@ public class PanelCatalogoUsuario extends VerticalLayout {
             usuarioDTO.getRoles().add(rolComboBox.getValue());
             usuarioDTO.setEsReseteadoPassword(resetPasswordCheckbox.getValue());
 
+            usuarioService.save(usuarioDTO);
         });
 
         cancelButton.addClickListener(event -> {

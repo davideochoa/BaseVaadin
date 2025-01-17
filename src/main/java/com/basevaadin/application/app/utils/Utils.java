@@ -11,6 +11,33 @@ import java.util.stream.Collectors;
 
 public class Utils {
 
+    public static UsuarioEntity toEntity(UsuarioDTO usuarioDTO) {
+        UsuarioEntity usuarioEntity = new UsuarioEntity();
+
+        usuarioEntity.setId(usuarioDTO.getId());
+        usuarioEntity.setNombrePropio(usuarioDTO.getNombrePropio());
+        usuarioEntity.setCorreo(usuarioDTO.getCorreo());
+        usuarioEntity.setNombreUsuario(usuarioDTO.getNombreUsuario());
+        usuarioEntity.setEsReseteadoPassword(usuarioDTO.getEsReseteadoPassword());
+
+        // Convertir roles
+        if (usuarioDTO.getRoles() != null) {
+            usuarioEntity.setRoles(usuarioDTO.getRoles().stream()
+                    .map(Utils::toEntity) // Convertir RolDTO a RolEntity
+                    .collect(Collectors.toSet()));
+        }
+
+        return usuarioEntity;
+    }
+
+    public static RolEntity toEntity(RolDTO rolDTO) {
+        RolEntity rolEntity = new RolEntity();
+        rolEntity.setId(rolDTO.getId());
+        rolEntity.setNombre(rolDTO.getNombre());
+        rolEntity.setDescripcion(rolDTO.getDescripcion());
+        return rolEntity;
+    }
+
     public static <T, U> List<U> convertToDTOList(List<T> entities, Function<T, U> mapper) {
         return entities.stream()
                 .map(mapper)
