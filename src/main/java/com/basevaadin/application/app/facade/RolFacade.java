@@ -18,10 +18,5 @@ public class RolFacade {
     }
 
     @Transactional(readOnly = true)
-    public RolEntity findByNombre(String nombre){
-        return rolRepository.findByNombre(nombre);
-    }
-
-    @Transactional(readOnly = true)
     public List<RolEntity> findAllByOrderByNombreAsc() { return rolRepository.findAllByOrderByNombreAsc(); }
 }
