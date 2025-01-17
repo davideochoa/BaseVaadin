@@ -1,10 +1,10 @@
 package com.basevaadin.application.app.data.DTO;
 
-import com.basevaadin.application.app.data.entity.RolEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -15,6 +15,7 @@ public class UsuarioDTO {
     private String nombrePropio;
     private String correo;
     private String nombreUsuario;
-    private Set<RolDTO> roles;
+    private String password;
+    private Set<RolDTO> roles = new HashSet<>();
     private Boolean esReseteadoPassword;
 }

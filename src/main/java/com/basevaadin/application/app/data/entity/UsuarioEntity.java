@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -47,7 +48,7 @@ public class UsuarioEntity {
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "rol_id")
     )
-    private Set<RolEntity> roles;
+    private Set<RolEntity> roles = new HashSet<>();
 
     @Column(name = "es_reseteado_password")
     private Boolean esReseteadoPassword;

@@ -21,6 +21,10 @@ public class UsuarioService {
     }
 
     public void save(UsuarioDTO usuarioDTO) {
+        if(usuarioDTO.getId() == null || usuarioDTO.getId() == 0) {
+            usuarioDTO.setEsReseteadoPassword(true);
+            usuarioDTO.setPassword(usuarioDTO.getNombreUsuario());
+        }
         usuarioFacade.save(Utils.toEntity(usuarioDTO));
     }
 }
