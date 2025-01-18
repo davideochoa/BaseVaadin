@@ -17,7 +17,7 @@ import org.vaadin.lineawesome.LineAwesomeIconUrl;
 @Menu(order = Constante.dos, icon = LineAwesomeIconUrl.PENCIL_RULER_SOLID)
 @RolesAllowed("ADMIN")
 public class CatalogoView extends Div {
-    private TabSheet tabSheet = new TabSheet();
+    private final TabSheet tabSheet = new TabSheet();
 
     public CatalogoView(UsuarioService usuarioService, RolService rolService) {
         tabSheet.add("Usuario", new PanelCatalogoUsuario(usuarioService, rolService));

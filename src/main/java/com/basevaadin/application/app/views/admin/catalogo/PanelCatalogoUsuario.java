@@ -13,7 +13,9 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class PanelCatalogoUsuario extends VerticalLayout {
     private final UsuarioService usuarioService;
     private final RolService rolService;
@@ -79,19 +81,26 @@ public class PanelCatalogoUsuario extends VerticalLayout {
             usuarioDTO.getRoles().add(rolComboBox.getValue());
             usuarioDTO.setEsReseteadoPassword(resetPasswordCheckbox.getValue());
 
-            usuarioService.save(usuarioDTO);
+            usuarioDTO = usuarioService.save(usuarioDTO);
+            log.info(usuarioDTO.toString());
+            limpiar();
         });
 
         cancelButton.addClickListener(event -> {
-            nombrePropioComboBox.clear();
-            usernameTextField.clear();
-            rolComboBox.clear();
-            resetPasswordCheckbox.clear();
-            usuarioDTO = new UsuarioDTO();
+            limpiar();
         });
 
         setPadding(false);
     }
+
+    private void limpiar() {
+        nombrePropioComboBox.clear();
+        usernameTextField.clear();
+        rolComboBox.clear();
+        resetPasswordCheckbox.clear();
+        usuarioDTO = new UsuarioDTO();
+    }
+
 
     private void getItemsComboBox() {
         nombrePropioComboBox.setItems(usuarioService.findAllByOrderByNombrePropioAsc());

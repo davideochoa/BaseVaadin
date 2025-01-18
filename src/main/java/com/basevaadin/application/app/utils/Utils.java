@@ -18,6 +18,7 @@ public class Utils {
         usuarioEntity.setNombrePropio(usuarioDTO.getNombrePropio());
         usuarioEntity.setCorreo(usuarioDTO.getCorreo());
         usuarioEntity.setNombreUsuario(usuarioDTO.getNombreUsuario());
+        usuarioEntity.setPassword(usuarioDTO.getPassword());
         usuarioEntity.setEsReseteadoPassword(usuarioDTO.getEsReseteadoPassword());
 
         // Convertir roles
@@ -58,6 +59,7 @@ public class Utils {
         dto.setNombrePropio(usuarioEntity.getNombrePropio());
         dto.setCorreo(usuarioEntity.getCorreo());
         dto.setNombreUsuario(usuarioEntity.getNombreUsuario());
+        dto.setPassword(usuarioEntity.getPassword());
         dto.setEsReseteadoPassword(usuarioEntity.getEsReseteadoPassword());
 
         // Convertir roles a DTOs

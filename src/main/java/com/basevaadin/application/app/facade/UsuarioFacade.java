@@ -23,7 +23,7 @@ public class UsuarioFacade {
     }
 
     @Transactional
-    public void save(UsuarioEntity usuarioEntity) {
-        usuarioRepository.save(usuarioEntity);
+    public UsuarioEntity save(UsuarioEntity usuarioEntity) {
+        return usuarioRepository.save(usuarioEntity);
     }
 }
