@@ -1,7 +1,6 @@
 package com.basevaadin.application.app.utils;
 
 import com.vaadin.flow.component.Text;
-import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;

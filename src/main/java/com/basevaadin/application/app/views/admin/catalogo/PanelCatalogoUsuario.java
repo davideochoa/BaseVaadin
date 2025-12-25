@@ -111,10 +111,10 @@ public class PanelCatalogoUsuario extends VerticalLayout {
 
             normalNotification.open();
 
-            if(usuarioDTO.getNombrePropio().length() > 0 &&
-                    usuarioDTO.getNombreUsuario().length() > 0 &&
-                    usuarioDTO.getCorreo().length() > 0 &&
-                    usuarioDTO.getRoles().size() > 0){
+            if(!usuarioDTO.getNombrePropio().isEmpty() &&
+                    !usuarioDTO.getNombreUsuario().isEmpty() &&
+                    !usuarioDTO.getCorreo().isEmpty() &&
+                    !usuarioDTO.getRoles().isEmpty()){
 
                 usuarioDTO = usuarioService.save(usuarioDTO);
 
@@ -133,9 +133,6 @@ public class PanelCatalogoUsuario extends VerticalLayout {
                             limpiar();
                             usuarioDTO = null;
                         }
-                    }
-                    else{
-
                     }
                 }
                 else{
