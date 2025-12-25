@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Utils {
-
+public class UtilEntityDTO {
     public static UsuarioEntity toEntity(UsuarioDTO usuarioDTO) {
         UsuarioEntity usuarioEntity = new UsuarioEntity();
 
@@ -24,7 +23,7 @@ public class Utils {
         // Convertir roles
         if (usuarioDTO.getRoles() != null) {
             usuarioEntity.setRoles(usuarioDTO.getRoles().stream()
-                    .map(Utils::toEntity) // Convertir RolDTO a RolEntity
+                    .map(UtilEntityDTO::toEntity) // Convertir RolDTO a RolEntity
                     .collect(Collectors.toSet()));
         }
 
@@ -65,7 +64,7 @@ public class Utils {
         // Convertir roles a DTOs
         if (usuarioEntity.getRoles() != null) {
             dto.setRoles(usuarioEntity.getRoles().stream()
-                    .map(Utils::toDTO) // Convierte cada RolEntity a RolDTO
+                    .map(UtilEntityDTO::toDTO) // Convierte cada RolEntity a RolDTO
                     .collect(Collectors.toSet()));
         }
 

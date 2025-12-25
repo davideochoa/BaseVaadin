@@ -2,7 +2,7 @@ package com.basevaadin.application.app.service;
 
 import com.basevaadin.application.app.data.DTO.UsuarioDTO;
 import com.basevaadin.application.app.facade.UsuarioFacade;
-import com.basevaadin.application.app.utils.Utils;
+import com.basevaadin.application.app.utils.UtilEntityDTO;
 import com.basevaadin.application.security.SecurityConfiguration;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,7 +23,7 @@ public class UsuarioService {
     }
 
     public List<UsuarioDTO> findAllByOrderByNombrePropioAsc() {
-        return Utils.convertToDTOList(usuarioFacade.findAllByOrderByNombrePropioAsc(), Utils::toDTO);
+        return UtilEntityDTO.convertToDTOList(usuarioFacade.findAllByOrderByNombrePropioAsc(), UtilEntityDTO::toDTO);
     }
 
     public UsuarioDTO save(UsuarioDTO usuarioDTO) {
@@ -34,6 +34,6 @@ public class UsuarioService {
             usuarioDTO.setPassword(passwordEncoder.encode(usuarioDTO.getNombreUsuario()));
         }
 
-        return Utils.toDTO(usuarioFacade.save(Utils.toEntity(usuarioDTO)));
+        return UtilEntityDTO.toDTO(usuarioFacade.save(UtilEntityDTO.toEntity(usuarioDTO)));
     }
 }
