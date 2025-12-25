@@ -1,5 +1,6 @@
 package com.basevaadin.application.app.views.anonymous.home;
 
+import com.basevaadin.application.app.constantes.Constante;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
@@ -12,7 +13,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
 
 @PageTitle("Home")
 @Route("")
-@Menu(order = 0, icon = "line-awesome/svg/file.svg")
+@Menu(order = Constante.NUMERO_DOS, icon = "line-awesome/svg/file.svg")
 @AnonymousAllowed
 public class HomeView extends VerticalLayout {
 

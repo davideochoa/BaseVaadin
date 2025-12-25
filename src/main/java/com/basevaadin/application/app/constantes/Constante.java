@@ -12,6 +12,7 @@ public class Constante {
     public static final String cancelar = "Cancelar";
     public static final String titleCatalogo = "Catalogos";
     public static final String routeCatalogo = "catalogos";
-    public static final int dos = 2;
+    public static final int NUMERO_UNO = 1;
+    public static final int NUMERO_DOS = 2;
 
 }

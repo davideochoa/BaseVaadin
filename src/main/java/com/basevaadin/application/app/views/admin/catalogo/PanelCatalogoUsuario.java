@@ -175,7 +175,6 @@ public class PanelCatalogoUsuario extends VerticalLayout {
         usuarioDTO = new UsuarioDTO();
     }
 
-
     private void getItemsComboBox() {
         nombrePropioComboBox.setItems(usuarioService.findAllByOrderByNombrePropioAsc());
         rolComboBox.setItems(rolService.findAllByOrderByNombreAsc());

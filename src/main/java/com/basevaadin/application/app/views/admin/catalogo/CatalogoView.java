@@ -14,7 +14,7 @@ import org.vaadin.lineawesome.LineAwesomeIconUrl;
 
 @PageTitle(Constante.titleCatalogo)
 @Route(Constante.routeCatalogo)
-@Menu(order = Constante.dos, icon = LineAwesomeIconUrl.PENCIL_RULER_SOLID)
+@Menu(order = Constante.NUMERO_UNO, icon = LineAwesomeIconUrl.PENCIL_RULER_SOLID)
 @RolesAllowed("ADMIN")
 public class CatalogoView extends Div {
     private final TabSheet tabSheet = new TabSheet();
