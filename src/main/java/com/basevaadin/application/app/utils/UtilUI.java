@@ -43,5 +43,7 @@ public class UtilUI {
         return notification;
     }
 
-
+    private UtilUI() {
+        throw new IllegalStateException("Utility class");
+    }
 }
